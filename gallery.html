@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Image Gallery</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <h1>My Gallery</h1>
+ <div class="filter-buttons">
+ <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+ <button class="filter-btn" onclick="filterGallery('landscape')">Landscapes</button>
+ <button class="filter-btn" onclick="filterGallery('portrait')">Portraits</button>
+ <button class="filter-btn" onclick="filterGallery('architecture')">Architecture</button>
+ </div>
+
+ <div class="gallery">
+ <!-- 12 Images -->
+ <div class="card" data-category="landscape"><img src="https://picsum.photos/300/200?random=1"><div class="card-info"><h3>Mountain View</h3><span class="tag">Landscape</span><div class="overlay">Beautiful mountain at sunset</div></div></div>
+ <div class="card" data-category="portrait"><img src="https://picsum.photos/300/200?random=2"><div class="card-info"><h3>Smiling Face</h3><span class="tag">Portrait</span><div class="overlay">Portrait of a happy person</div></div></div>
+ <div class="card" data-category="architecture"><img src="https://picsum.photos/300/200?random=3"><div class="card-info"><h3>City Building</h3><span class="tag">Architecture</span><div class="overlay">Modern city architecture</div></div></div>
+ <div class="card" data-category="landscape"><img src="https://picsum.photos/300/200?random=4"><div class="card-info"><h3>Ocean View</h3><span class="tag">Landscape</span><div class="overlay">Calm ocean waves</div></div></div>
+ <div class="card" data-category="portrait"><img src="https://picsum.photos/300/200?random=5"><div class="card-info"><h3>Studio Portrait</h3><span class="tag">Portrait</span><div class="overlay">Professional studio shot</div></div></div>
+ <div class="card" data-category="architecture"><img src="https://picsum.photos/300/200?random=6"><div class="card-info"><h3>Bridge Design</h3><span class="tag">Architecture</span><div class="overlay">Famous bridge architecture</div></div></div>
+ <div class="card" data-category="landscape"><img src="https://picsum.photos/300/200?random=7"><div class="card-info"><h3>Forest Path</h3><span class="tag">Landscape</span><div class="overlay">Peaceful forest trail</div></div></div>
+ <div class="card" data-category="portrait"><img src="https://picsum.photos/300/200?random=8"><div class="card-info"><h3>Natural Light</h3><span class="tag">Portrait</span><div class="overlay">Portrait in natural light</div></div></div>
+ <div class="card" data-category="architecture"><img src="https://picsum.photos/300/200?random=9"><div class="card-info"><h3>Old Church</h3><span class="tag">Architecture</span><div class="overlay">Historic church building</div></div></div>
+ <div class="card" data-category="landscape"><img src="https://picsum.photos/300/200?random=10"><div class="card-info"><h3>Desert Dunes</h3><span class="tag">Landscape</span><div class="overlay">Sand dunes at noon</div></div></div>
+ <div class="card" data-category="portrait"><img src="https://picsum.photos/300/200?random=11"><div class="card-info"><h3>Creative Pose</h3><span class="tag">Portrait</span><div class="overlay">Creative portrait style</div></div></div>
+ <div class="card" data-category="architecture"><img src="https://picsum.photos/300/200?random=12"><div class="card-info"><h3>Skyscraper</h3><span class="tag">Architecture</span><div class="overlay">Tall modern skyscraper</div></div></div>
+ </div>
+
+<script>
+function filterGallery(category){
+ document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+ event.target.classList.add('active');
+ document.querySelectorAll('.card').forEach(card=>{
+ card.style.display = (category==='all' || card.dataset.category===category) ? 'grid' : 'none';
+ });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body { font-family: Arial, sans-serif; text-align: center; }
+.filter-buttons { display: flex; justify-content: center; gap: 10px; margin: 20px; }
+.filter-btn { padding: 10px 20px; border: 1px solid #333; background: white; cursor: pointer; transition: 0.3s; }
+.filter-btn.active, .filter-btn:hover { background: #333; color: white; }
+
+.gallery {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+padding: 20px;
+transition: all 0.5s ease;
+}
+
+.card {
+display: grid;
+grid-template-rows: auto auto;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+transition: transform 0.3s, opacity 0.3s;
+position: relative;
+}
+.card:hover { transform: scale(1.05); }
+.card img { width: 100%; }
+.card-info { padding: 10px; }
+.tag { background: #eee; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+.overlay {
+position: absolute; bottom: 0; left: 0; right: 0;
+background: rgba(0,0,0,0.7); color: white;
+padding: 10px; opacity: 0; transition: opacity 0.3s;
+}
+.card:hover .overlay { opacity: 1; }
+
+@media (max-width: 1024px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .gallery { grid-template-columns: 1fr; } }
